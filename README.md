@@ -1,7 +1,7 @@
 # Money Tree
 
 📊 **Money Tree** is a next-gen financial tracking platform that keeps your ledger alive, transparent, and interactive.  
-Designed for hackathons, it combines **real-time updates, visual insights, and simple collaboration** to make managing money effortless.  
+ it combines **real-time updates, visual insights, and simple collaboration** to make managing money effortless.  
 
 ---
 
