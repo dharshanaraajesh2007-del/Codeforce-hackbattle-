@@ -1,0 +1,244 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Living Ledger Design System - Nature-inspired financial wellness theme
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Background & Base */
+    --background: 46 20% 97%;
+    --foreground: 150 8% 15%;
+
+    /* Cards & Surfaces */
+    --card: 0 0% 100%;
+    --card-foreground: 150 8% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 150 8% 15%;
+
+    /* Primary - Forest Green */
+    --primary: 150 60% 30%;
+    --primary-foreground: 0 0% 98%;
+    --primary-hover: 150 65% 25%;
+
+    /* Secondary - Earth Brown */
+    --secondary: 30 25% 85%;
+    --secondary-foreground: 30 15% 25%;
+
+    /* Muted - Sage */
+    --muted: 120 20% 92%;
+    --muted-foreground: 120 8% 45%;
+
+    /* Accent - Golden */
+    --accent: 45 85% 65%;
+    --accent-foreground: 45 15% 15%;
+
+    /* Success - Growth Green */
+    --success: 120 50% 45%;
+    --success-foreground: 0 0% 98%;
+
+    /* Warning - Autumn Orange */
+    --warning: 35 85% 60%;
+    --warning-foreground: 35 15% 15%;
+
+    /* Destructive - Dried Red */
+    --destructive: 0 65% 55%;
+    --destructive-foreground: 0 0% 98%;
+
+    /* Borders & Inputs */
+    --border: 120 15% 88%;
+    --input: 120 15% 94%;
+    --ring: 150 60% 30%;
+
+    --radius: 0.75rem;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(150 70% 35%));
+    --gradient-success: linear-gradient(135deg, hsl(var(--success)), hsl(120 60% 50%));
+    --gradient-golden: linear-gradient(135deg, hsl(var(--accent)), hsl(45 90% 70%));
+    --gradient-earth: linear-gradient(180deg, hsl(46 20% 97%), hsl(30 30% 95%));
+
+    /* Tree Animation Colors */
+    --tree-trunk: 25 40% 35%;
+    --tree-branch: 35 50% 40%;
+    --tree-leaf-green: 120 50% 45%;
+    --tree-leaf-gold: 45 75% 55%;
+    --tree-fruit: 15 85% 60%;
+
+    /* Shadows */
+    --shadow-soft: 0 2px 8px hsl(150 8% 15% / 0.1);
+    --shadow-medium: 0 4px 16px hsl(150 8% 15% / 0.15);
+    --shadow-strong: 0 8px 32px hsl(150 8% 15% / 0.2);
+  }
+
+  .dark {
+    /* Dark mode - Deep forest theme */
+    --background: 150 15% 8%;
+    --foreground: 120 15% 90%;
+
+    --card: 150 12% 12%;
+    --card-foreground: 120 15% 90%;
+
+    --popover: 150 12% 12%;
+    --popover-foreground: 120 15% 90%;
+
+    --primary: 150 65% 45%;
+    --primary-foreground: 150 15% 8%;
+    --primary-hover: 150 70% 50%;
+
+    --secondary: 150 8% 20%;
+    --secondary-foreground: 120 15% 90%;
+
+    --muted: 150 8% 18%;
+    --muted-foreground: 120 10% 65%;
+
+    --accent: 45 80% 55%;
+    --accent-foreground: 45 15% 15%;
+
+    --success: 120 55% 50%;
+    --success-foreground: 150 15% 8%;
+
+    --warning: 35 80% 55%;
+    --warning-foreground: 35 15% 15%;
+
+    --destructive: 0 70% 60%;
+    --destructive-foreground: 150 15% 8%;
+
+    --border: 150 8% 25%;
+    --input: 150 8% 18%;
+    --ring: 150 65% 45%;
+
+    /* Dark mode gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(150 75% 50%));
+    --gradient-success: linear-gradient(135deg, hsl(var(--success)), hsl(120 65% 55%));
+    --gradient-golden: linear-gradient(135deg, hsl(var(--accent)), hsl(45 85% 65%));
+    --gradient-earth: linear-gradient(180deg, hsl(150 15% 8%), hsl(150 12% 12%));
+
+    /* Dark tree colors */
+    --tree-trunk: 25 35% 25%;
+    --tree-branch: 35 45% 30%;
+    --tree-leaf-green: 120 55% 50%;
+    --tree-leaf-gold: 45 70% 60%;
+    --tree-fruit: 15 80% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-gradient-to-br from-background to-secondary/20 text-foreground min-h-screen;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted/50;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/30 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/50;
+  }
+}
+
+@layer components {
+  /* Tree animation keyframes */
+  .tree-grow {
+    animation: treeGrow 0.8s ease-out forwards;
+  }
+
+  .tree-shrink {
+    animation: treeShrink 0.6s ease-in forwards;
+  }
+
+  .leaf-fall {
+    animation: leafFall 1s ease-in forwards;
+  }
+
+  .fruit-appear {
+    animation: fruitAppear 0.6s ease-out forwards;
+  }
+
+  .branch-sway {
+    animation: branchSway 3s ease-in-out infinite;
+  }
+
+  @keyframes treeGrow {
+    from {
+      transform: scale(0.9);
+      opacity: 0.8;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes treeShrink {
+    from {
+      transform: scale(1);
+      opacity: 1;
+    }
+    to {
+      transform: scale(0.95);
+      opacity: 0.9;
+    }
+  }
+
+  @keyframes leafFall {
+    0% {
+      transform: translateY(0) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(20px) rotate(45deg);
+      opacity: 0;
+    }
+  }
+
+  @keyframes fruitAppear {
+    0% {
+      transform: scale(0);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes branchSway {
+    0%, 100% {
+      transform: rotate(-1deg);
+    }
+    50% {
+      transform: rotate(1deg);
+    }
+  }
+
+  /* Glassmorphism effect */
+  .glass {
+    @apply backdrop-blur-sm bg-white/20 dark:bg-white/5 border border-white/20;
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+  }
+}
